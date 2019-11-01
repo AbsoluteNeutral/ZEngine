@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file	Logging.h
-\brief	Logging using printf and Error checking, delete safe and free safe
-*/
-/*****************************************************************************/
+
 #ifndef _LOGGING_H
 #define _LOGGING_H
 

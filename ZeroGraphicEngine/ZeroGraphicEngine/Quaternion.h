@@ -1,10 +1,4 @@
-/*****************************************************************************/
-/*!
-\file		Quaternion.h
-\brief		Quaternion Implmentation
-Uploaded: 18 May 2019
-*/
-/*****************************************************************************/
+
 #ifndef _QUATERNION_H
 #define _QUATERNION_H
 

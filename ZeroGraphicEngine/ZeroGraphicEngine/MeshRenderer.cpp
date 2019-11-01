@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			MeshRenderer.cpp
-\brief			MeshRenderer Component of Game Object
-*/
-/*****************************************************************************/
+
 #include "stdafx.h"
 #include "MeshRenderer.h"
 #include "Gizmo.h"

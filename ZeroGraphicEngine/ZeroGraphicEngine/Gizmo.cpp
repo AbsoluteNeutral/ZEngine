@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			Gizmo.cpp
-\brief			Debug Draw of different shapes
-*/
-/*****************************************************************************/
+
 #include "stdafx.h"
 #include "Gizmo.h"
 #include "AssetsManager.h"

@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			Engine.h
-\brief			The Back end of encapsulate system components and managers
-*/
-/*****************************************************************************/
+
 #ifndef _ENGINE_H
 #define _ENGINE_H
 

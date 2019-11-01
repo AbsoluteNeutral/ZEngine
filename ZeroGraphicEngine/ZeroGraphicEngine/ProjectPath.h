@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			ProjectPath.h
-\brief			ResourceManager, Global Pointers/Vector
-*/
-/*****************************************************************************/
+
 #ifndef _PROJECTPATH_H
 #define _PROJECTPATH_H
 

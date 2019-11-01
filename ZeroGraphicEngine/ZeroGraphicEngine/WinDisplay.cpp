@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			WinDisplay.cpp
-\brief			WIN32 API display window
-*/
-/*****************************************************************************/
+
 #include "stdafx.h"
 #include "WinDisplay.h"
 #include "Engine.h"

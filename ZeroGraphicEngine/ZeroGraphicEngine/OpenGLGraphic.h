@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			OpenGLGraphic.h
-\brief			OpenGL Wrap and system implementation
-*/
-/*****************************************************************************/
+
 #ifndef _OPENGLGRAPHIC_H
 #define _OPENGLGRAPHIC_H
 

@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			ResourceManager.h
-\brief			ResourceManager, Global Pointers/Vector
-*/
-/*****************************************************************************/
+
 #ifndef _RESOURCEMANAGER_H
 #define _RESOURCEMANAGER_H
 

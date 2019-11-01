@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			Transform.cpp
-\brief			Transform Implmentation
-*/
-/*****************************************************************************/
+
 #include "stdafx.h"
 #include "Transform.h"
 #include "Logging.h"

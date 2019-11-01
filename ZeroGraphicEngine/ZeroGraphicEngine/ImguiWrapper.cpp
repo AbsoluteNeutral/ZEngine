@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			ImguiWrapper.cpp
-\brief			Imgui Wrapper
-*/
-/*****************************************************************************/
+
 #include "stdafx.h"
 #include "ImguiWrapper.h"
 #include "EditorMain.h"

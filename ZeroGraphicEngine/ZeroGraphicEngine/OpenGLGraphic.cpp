@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			OpenGLGraphic.cpp
-\brief			OpenGL Wrap and system implementation
-*/
-/*****************************************************************************/
+
 #include "stdafx.h"
 
 #include "OpenGLGraphic.h"

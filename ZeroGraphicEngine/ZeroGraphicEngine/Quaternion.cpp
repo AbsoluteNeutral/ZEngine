@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			Quaternion.cpp
-\brief			Quaternion Implmentation
-*/
-/*****************************************************************************/
+
 #include "stdafx.h"
 #include <stdio.h>
 #include "Quaternion.h"

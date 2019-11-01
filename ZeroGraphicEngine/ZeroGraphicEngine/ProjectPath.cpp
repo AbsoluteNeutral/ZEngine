@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			ProjectPath.cpp
-\brief			ResourceManager, Global Pointers/Vector
-*/
-/*****************************************************************************/
+
 
 #include "stdafx.h"
 #include "ProjectPath.h"

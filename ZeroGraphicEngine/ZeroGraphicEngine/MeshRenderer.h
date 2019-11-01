@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			MeshRenderer.h
-\brief			MeshRenderer Component of Game Object
-*/
-/*****************************************************************************/
+
 
 #ifndef _MESHRENDERER_H
 #define _MESHRENDERER_H

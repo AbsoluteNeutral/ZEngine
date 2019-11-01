@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			AssetsManager.cpp
-\brief			Load all Assets
-*/
-/*****************************************************************************/
+
 #include "stdafx.h"
 #include "AssetsManager.h"
 //#include "GlobalGameObjectFunction.h"

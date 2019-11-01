@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file	Logging.cpp
-\brief	Logging using printf and Error checking, delete safe and free safe
-*/
-/*****************************************************************************/
+
 #include "stdafx.h"
 
 #include <assert.h>

@@ -1,9 +1,5 @@
-/*****************************************************************************/
-/*!
-\file			Texture2D.cpp
-\brief			OpenGL Wrap Generate Texture mapping
-*/
-/*****************************************************************************/
+
+
 #include "stdafx.h"
 #include "Texture2D.h"
 #include "Logging.h"

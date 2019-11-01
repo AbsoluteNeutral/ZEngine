@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			ResourceManager.cpp
-\brief			ResourceManager, Global Pointers/Vector
-*/
-/*****************************************************************************/
+
 #include "stdafx.h"
 #include "ResourceManager.h"
 #include "Engine.h"

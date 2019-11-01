@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			MemoryManager.h
-\brief			MemoryManager, ALlocate, Dellocate
-*/
-/*****************************************************************************/
+
 #ifndef _MEMORYMANAGER_H
 #define _MEMORYMANAGER_H
 

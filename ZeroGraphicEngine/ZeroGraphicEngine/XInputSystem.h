@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			XInputSystem.h
-\brief			WIN32 API xbox controller System
-*/
-/*****************************************************************************/
+
 #ifndef XINPUT_SYSTEM_H_
 #define XINPUT_SYSTEM_H_
 

@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			ResourceArchtype.cpp
-\brief			Handles ResourceArchtype allocation
-*/
-/*****************************************************************************/
+
 #include "stdafx.h"
 #include "ResourceManager.h"
 

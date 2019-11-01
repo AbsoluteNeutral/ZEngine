@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			MemoryManager.h
-\brief			MemoryManager, ALlocate, Dellocate
-*/
-/*****************************************************************************/
+
 #ifndef _ZG_ALLOCATOR_H
 #define _ZG_ALLOCATOR_H
 

@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			HashString.h
-\brief			ResourceManager, Global Pointers/Vector
-*/
-/*****************************************************************************/
+
 #ifndef _HASHMESH_H
 #define _HASHMESH_H
 

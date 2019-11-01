@@ -1,9 +1,4 @@
-/*****************************************************************************/
-/*!
-\file			Engine.cpp
-\brief			The Back end of encapsulate system components and managers
-*/
-/*****************************************************************************/
+
 #include "stdafx.h"
 #include "Engine.h"
 
