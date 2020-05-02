@@ -77,6 +77,7 @@ int WINAPI WinMain(HINSTANCE hInstanceH, HINSTANCE prevInstanceH, LPSTR command_
 
 #endif
 
+	//This is to track memory leak for MSVS, debug only
 #if defined(_DEBUG)
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 #endif
