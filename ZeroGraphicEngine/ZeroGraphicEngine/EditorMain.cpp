@@ -6,7 +6,7 @@
 #include "Simulation.h"
 
 
-_EDITOR_SIMULATION_NUM simulationNum = _SIMULATION3;
+_EDITOR_SIMULATION_NUM simulationNum = _SIMULATION0;
 
 enum _FFFPS_ENUM {
 	_30fps = 0,
