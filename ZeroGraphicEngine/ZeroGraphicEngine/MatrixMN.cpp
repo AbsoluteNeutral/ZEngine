@@ -127,6 +127,19 @@ namespace zg {
 			}
 		}
 	}
+	void MatrixMN::SetZero()
+	{
+		if (IsSquare())
+		{
+			for (size_t i = 0; i < numOfCol; ++i)
+			{
+				for (size_t j = 0; j < numOfRow; ++j)
+				{
+					matrix[i][j] = 0.0f;
+				}
+			}
+		}
+	}
 
 	void MatrixMN::Transpose() 
 	{
@@ -142,6 +155,7 @@ namespace zg {
 			}
 		}
 
+		//swap values
 		numOfRow = numOfRow ^ numOfCol;
 		numOfCol = numOfRow ^ numOfCol;
 		numOfRow = numOfRow ^ numOfCol;

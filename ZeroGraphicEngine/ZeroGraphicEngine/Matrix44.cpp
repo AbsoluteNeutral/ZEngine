@@ -761,16 +761,19 @@ namespace zg {
 
 		return ToQuaternion(matrix);
 	}
-	Vector3	TransformPoint(const Matrix44& matrix_, const Vector3& point_) {
+	Vector3	TransformPoint(const Matrix44& matrix_, const Vector3& point_) 
+	{
 		return Vector3{ matrix_ * Vector4{ point_, 1.0f } };
 	}
-	Vector3	TransformVector(const Matrix44& matrix_, const Vector3& vector_) {
+	Vector3	TransformVector(const Matrix44& matrix_, const Vector3& vector_) 
+	{
 		return Vector3{ matrix_ * Vector4{ vector_, 0.0f } };
 	}
 
 #pragma region Hardcoded Inverse
+	Matrix44 Inverse(const Matrix44& matrix_)
+	{
 #ifdef ROW_MAJOR
-	Matrix44 Inverse(const Matrix44& matrix_) {
 		Vector4 idn0{ 1.0f, 0.0f, 0.0f, 0.0f };
 		Vector4 idn1{ 0.0f, 1.0f, 0.0f, 0.0f };
 		Vector4 idn2{ 0.0f, 0.0f, 1.0f, 0.0f };
@@ -927,10 +930,7 @@ namespace zg {
 			idn2.x, idn2.y, idn2.z, idn2.w,
 			idn3.x, idn3.y, idn3.z, idn3.w
 		};
-		return result;
-	}
 #else
-	Matrix44 Inverse(const Matrix44& matrix_) {
 		Vector4 idn0{ 1.0f, 0.0f, 0.0f, 0.0f };
 		Vector4 idn1{ 0.0f, 1.0f, 0.0f, 0.0f };
 		Vector4 idn2{ 0.0f, 0.0f, 1.0f, 0.0f };
@@ -1094,8 +1094,8 @@ namespace zg {
 			idn2.x, idn2.y, idn2.z, idn2.w,
 			idn3.x, idn3.y, idn3.z, idn3.w
 		};
-	}
 #endif
+	}
 #pragma endregion
 
 }//namespace zg

@@ -15,10 +15,6 @@ namespace zg
 #else
 	typedef float realtype;
 #endif
-
-	//using ROW or COL major for matrix
-	//#define ROW_MAJOR 1
-	#define COL_MAJOR 1
 }
 
 #ifdef min

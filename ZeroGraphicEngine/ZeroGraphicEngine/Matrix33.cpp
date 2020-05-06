@@ -29,7 +29,8 @@ namespace zg {
 	//setters
 	void Matrix33::Set(float _00, float _01, float _02,
 					   float _10, float _11, float _12,
-					   float _20, float _21, float _22) {
+					   float _20, float _21, float _22) 
+	{
 		m00 = _00;	m01 = _01;	 m02 = _02;
 		m10 = _10;	m11 = _11;	 m12 = _12;
 		m20 = _20;	m21 = _21;	 m22 = _22;
@@ -53,7 +54,7 @@ namespace zg {
 			b = b + M + 1;    /*get next diagonal matrix*/
 			e3 = e3 + M;      /*get end of next row*/
 		}
-		//#version 2
+		//#method 2
 		//m8 = m4 = m0 = 1.0f;
 		//m1 = m2 = m3 =
 		//m5 = m6 = m7 = 0.0f;
@@ -62,7 +63,8 @@ namespace zg {
 		//m10 = 0.0f; m11 = 1.0f; m12 = 0.0f;
 		//m20 = 0.0f; m21 = 0.0f; m22 = 1.0f;
 	}
-	void Matrix33::SetZero() {
+	void Matrix33::SetZero() 
+	{
 		float* b = m;
 		float* e = m + 9;
 		while (b != e) {
@@ -70,7 +72,8 @@ namespace zg {
 			b += 3;
 		}
 	}
-	void Matrix33::Transpose() {
+	void Matrix33::Transpose()
+	{
 		int M = 3;
 		float *b = *md;			/*begin of matrix*/
 		float *e = *md + M * M; /*end of matrix  */
@@ -92,14 +95,16 @@ namespace zg {
 	}
 
 	//getters
-	Matrix33 Matrix33::GetAbsouleMatrix() const {
+	Matrix33 Matrix33::GetAbsouleMatrix() const
+	{
 		return Matrix33{
 			fabs(md[0][0]), 	fabs(md[0][1]),	 fabs(md[0][2]),
 			fabs(md[1][0]), 	fabs(md[1][1]),	 fabs(md[1][2]),
 			fabs(md[2][0]), 	fabs(md[2][1]),	 fabs(md[2][2])
 		};
 	}
-	float Matrix33::GetDeterminant() const {
+	float Matrix33::GetDeterminant() const 
+	{
 #ifdef ROW_MAJOR
 		//float tmp = m[0] * (m[4] * m[8] - m[7] * m[5]) -
 		//		      m[1] * (m[3] * m[8] - m[6] * m[5]) +
@@ -361,7 +366,8 @@ namespace zg {
 	void BuildScale(Matrix33& matrix_, const Vector2& v_) { BuildScale(matrix_, v_.x, v_.y); }
 	void BuildScale(Matrix33& matrix_, const Vector3& v_) { BuildScale(matrix_, v_.x, v_.y); }
 
-	void BuildTranslate(Matrix33& matrix_, float x_, float y_) {
+	void BuildTranslate(Matrix33& matrix_, float x_, float y_) 
+	{
 	//	matrix_.SetZero();
 	//#ifdef ROW_MAJOR
 	//	matrix_.m02 = x_; matrix_.m12 = y_;
@@ -413,7 +419,8 @@ namespace zg {
 	Matrix33 BuildTranslate3x3(const Vector2& v_) {	return BuildTranslate3x3(v_.x, v_.y); }
 	Matrix33 BuildTranslate3x3(const Vector3& v_) {	return BuildTranslate3x3(v_.x, v_.y); }
 
-	Matrix33 BuildRotation3x3(const Quaternion& q) {
+	Matrix33 BuildRotation3x3(const Quaternion& q) 
+	{
 		float nQ = q.x * q.x + q.y * q.y + q.z * q.z + q.w * q.w;
 		float s = nQ > 0.0f ? 2.0f / nQ : 0.0f;
 		float xs = q.x * s;
@@ -446,14 +453,16 @@ namespace zg {
 		//	2.0f * (xz - wy),			2.0f * (yz + wx),			1.0f - 2.0f * (xx + yy)
 		//};
 	}
-	void BuildSkew(Matrix33& matrix, const Vector3& v_) {
+	void BuildSkew(Matrix33& matrix, const Vector3& v_)
+	{
 		matrix = Matrix33{
 			0.0f,	-v_.z,	 v_.y,
 			v_.z,	 0.0f,	 -v_.x,
 			-v_.y,  v_.x,	0.0f
 		};
 	}
-	Matrix33 BuildSkew3x3(const Vector3& v_){
+	Matrix33 BuildSkew3x3(const Vector3& v_)
+	{
 		return Matrix33{
 			0.0f,	-v_.z,	 v_.y,
 			v_.z,	 0.0f,	 -v_.x,
@@ -461,7 +470,8 @@ namespace zg {
 		};
 	}
 
-	Matrix33 GaussJordanInverse(const Matrix33& matrix_) {
+	Matrix33 GaussJordanInverse(const Matrix33& matrix_) 
+	{
 		Vector3 idn[3]{ { 1.0f, 0.0f, 0.0f },
 						{ 0.0f, 1.0f, 0.0f },
 						{ 0.0f, 0.0f, 1.0f } };

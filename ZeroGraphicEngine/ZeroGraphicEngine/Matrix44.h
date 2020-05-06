@@ -2,7 +2,7 @@
 #ifndef _MATRIX44_H
 #define _MATRIX44_H
 
-#include "Reals.h"
+#include "Matrix.h"
 #include "Vector3.h"
 #include "Quaternion.h"
 
@@ -112,8 +112,9 @@ namespace zg {
 	ZG_API Vector3		TransformPoint		(const Matrix44& matrix_, const Vector3& point_);
 	ZG_API Vector3		TransformVector		(const Matrix44& matrix_, const Vector3& vector_);
 	
+#pragma region Hardcoded Inverse
 	//ZG_API Matrix44		Inverse				(const Matrix44& mat);
-	
+#pragma endregion
 
 }//namespace zg
 

@@ -1,7 +1,10 @@
 
 #include "stdafx.h"
 #include "Transform.h"
-#include "Logging.h"
+#if defined(_DEBUG)
+	#include "Logging.h"
+#endif
+
 
 #ifdef min
 #undef min
@@ -765,8 +768,6 @@ void RotateTowards(Transform& transform_, const zg::Vector3& target, float rate)
 {
 	transform_.RotateTowards(target, rate);
 }
-
-
 
 #ifdef USING_SOL2
 void Transform::BindLua(sol::state & lua)

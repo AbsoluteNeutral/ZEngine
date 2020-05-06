@@ -8,7 +8,7 @@
 enum ZG_API TRANSFORM_FLAG_ENUM {
 	T_DIRTY				= 0x00000001,	//track wheather the matrix have been concatenated
 	T_STATIC			= 0x00000002,	//track to see if is a static transform, no update is needed throughout
-	T_YET_TOUPDATE		= 0x00000004,	//track wheather world coordinates have been updated, only applies to child transform
+	T_YET_TOUPDATE= 0x00000004,	//track wheather world coordinates have been updated, only applies to child transform
 	T_ISBONE			= 0x00000008	//track wheather if is a bone object, internal use only
 };
 
@@ -62,23 +62,6 @@ public:
 	void SetUniformLocalScale2D	(float xy_);
 	void SetUniformLocalScale3D	(float xyz_);
 
-#ifdef USING_SOL2
-	//world
-	void Translate		(float x_, float y_, float z_);
-	void Translate		(const zg::Vector3& translate_);
-	void Rotate			(float x_, float y_, float z_);
-	void Rotate			(const zg::Vector3& rotation_);
-	void Scale			(float x_, float y_, float z_);
-	void Scale			(const zg::Vector3& scaling_);
-	//local
-	void LocalTranslate	(float x_, float y_, float z_);
-	void LocalTranslate	(const zg::Vector3& translate_);
-	void LocalRotate	(float x_, float y_, float z_);
-	void LocalRotate	(const zg::Vector3& rotation_);
-	void LocalScale		(float x_, float y_, float z_);
-	void LocalScale		(const zg::Vector3& scaling_);
-	static void BindLua	(sol::state& lua);
-#else
 	// ____________________________________________________________ world
 	void Translate			(float x_, float y_ = 0.0f, float z_ = 0.0f);
 	void Translate			(const zg::Vector3& translate_);
@@ -99,7 +82,6 @@ public:
 	void LocalScale			(const zg::Vector3& scaling_);
 	void LocalScaleMultiply	(float x_, float y_ = 0.0f, float z_ = 0.0f);
 	void LocalScaleMultiply	(const zg::Vector3& scaling_);
-#endif
 
 	// ____________________________________________________________ getters
 	Transform			GetConcatTransform	() const;

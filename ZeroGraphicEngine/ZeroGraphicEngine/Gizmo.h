@@ -15,6 +15,7 @@ static const unsigned _gizmo_numOfSpherept_vertex = _gizmo_numOfSpherept * 2;
 #define _GIZMO_NUMOF_AABB_PT 24
 
 class ZG_API Gizmo{
+	// ========== ========== ========== ========== ========== ========== BASE class
 	class GizmoShape {
 	public:
 		GizmoShape(const zg::Vector3* vertices, const zg::Color& c, size_t size)
@@ -32,43 +33,49 @@ class ZG_API Gizmo{
 		zg::Color color;
 		size_t sz;
 		std::vector<zg::Vector3> vertex;
-	};// ========== ========== ========== ========== ========== ========== BASE class
+	};
+	// ========== ========== ========== ========== ========== ========== LINE
 	class GizmoShape_Line : public GizmoShape {
 	public:
 		GizmoShape_Line(const zg::Vector3* vertices, const zg::Color& color_)
 			:GizmoShape(vertices, color_, 2)
 		{}
-	};// ========== ========== ========== ========== ========== ========== LINE
+	};
+	// ========== ========== ========== ========== ========== ========== CIRCLE
 	class GizmoShape_Circle : public GizmoShape {
 	public:
 		GizmoShape_Circle(const zg::Vector3* vertices, const zg::Color& color_)
 			:GizmoShape(vertices, color_, _GIZMO_NUMOFCIRCLE_VERTEX)
 		{}
-	};// ========== ========== ========== ========== ========== ========== CIRCLE
+	};
+	// ========== ========== ========== ========== ========== ========== SPHERE
 	class GizmoShape_Sphere : public GizmoShape {
 	public:
 		GizmoShape_Sphere(const zg::Vector3* vertices, const zg::Color& color_)
 			:GizmoShape(vertices, color_, _GIZMO_NUMOFSPHERE_VERTEX)
 		{}
-	};// ========== ========== ========== ========== ========== ========== SPHERE
+	};
+	// ========== ========== ========== ========== ========== ========== AABB
 	class GizmoShape_AABB : public GizmoShape {
 	public:
 		GizmoShape_AABB(const zg::Vector3* vertices, const zg::Color& color_)
 			:GizmoShape(vertices, color_, _GIZMO_NUMOF_AABB_PT)
 		{}
-	};// ========== ========== ========== ========== ========== ========== AABB
+	};
+	// ========== ========== ========== ========== ========== ========== Ray
 	class GizmoShape_Ray: public GizmoShape {
 	public:
 		GizmoShape_Ray(const zg::Vector3* vertices, const zg::Color& color_)
 			:GizmoShape(vertices, color_, 2 + _GIZMO_NUMOFCIRCLE_VERTEX + _GIZMO_NUMOFCIRCLE_VERTEX)
 		{}
-	};// ========== ========== ========== ========== ========== ========== Ray
+	};
+	// ========== ========== ========== ========== ========== ========== Mesh
 	class GizmoShape_Mesh : public GizmoShape {
 	public:
 		GizmoShape_Mesh(const std::vector<zg::Vector3>& vertices, const zg::Color& color_)
 			:GizmoShape(vertices, color_, vertices.size())
 		{}
-	};// ========== ========== ========== ========== ========== ========== Ray
+	};
 	Gizmo& operator=(const Gizmo&);
 	Gizmo(const Gizmo&);
 public:
@@ -105,12 +112,12 @@ public:
 	static void Mesh	(const std::vector<zg::Vector3>& points, const zg::Color& color_ = CC_BLACK);
 private:
 	IShader* gizmo_shader;
-	IShader* gizmo_no_trans_shader;
-	unsigned VERTEX_ARRAY;
-	unsigned BUFF_OBJ;
-	zg::Matrix44 cameraMatrix;
+	IShader* gizmo_no_trans_shader;			//shader that requires matrix transformation
+	unsigned VERTEX_ARRAY;					//OpenGL glGenVertexArrays ID 
+	unsigned BUFF_OBJ;						//OpenGL glGenBuffers ID
+	//zg::Matrix44 cameraMatrix;				//camera matrix to use
 	
-	static std::vector<GizmoShape> list;
+	static std::vector<GizmoShape> list;	//list of gizmo shape to draw
 };
 
 ZG_API extern Gizmo DebugGizmo;

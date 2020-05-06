@@ -5,29 +5,46 @@
 int XboxInput::NUM_CONTROLLERS = 0;
 
 XboxInput::XboxInput() noexcept
-	:id(NUM_CONTROLLERS++), isConnect(false),
-	currState{}, prevState{}, vibration{},
-	leftDeadZone{ XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE }, rightDeadZone{ XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE },
-	triggerDeadZone{ XINPUT_GAMEPAD_TRIGGER_THRESHOLD },
-	LeftStickX(0.0f), LeftStickY(0.0f), RightStickX(0.0f),
-	RightStickY(0.0f), LeftTrigger(0), RightTrigger(0),
-	prevLeftStickX(0.0f), prevLeftStickY(0.0f), prevRightStickX(0.0f), 
-	prevRightStickY(0.0f), prevLeftTrigger(0), prevRightTrigger(0)
+	:id(NUM_CONTROLLERS++)
+	, isConnect(false)
+	, currState{}, prevState{}, vibration{}
+	, leftDeadZone{ XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE }
+	, rightDeadZone{ XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE }
+	, triggerDeadZone{ XINPUT_GAMEPAD_TRIGGER_THRESHOLD }
+
+	, LeftStickX(0.0f)
+	, LeftStickY(0.0f)
+	, RightStickX(0.0f)
+	, RightStickY(0.0f)
+
+	, LeftTrigger(0)
+	, RightTrigger(0)
+	, prevLeftTrigger(0)
+	, prevRightTrigger(0)
+
+	, prevLeftStickX(0.0f)
+	, prevLeftStickY(0.0f)
+	, prevRightStickX(0.0f)
+	, prevRightStickY(0.0f)
 {}
 
-XboxInput::~XboxInput(){
+XboxInput::~XboxInput()
+{
 	Vibrate(0, 0);
 }
 
-XINPUT_GAMEPAD* XboxInput::GetGamepad(){
+XINPUT_GAMEPAD* XboxInput::GetGamepad()
+{
 	return &currState.Gamepad;
 }
 
-XINPUT_STATE* XboxInput::GetState() {
+XINPUT_STATE* XboxInput::GetState() 
+{
 	return &currState;
 }
 
-bool XboxInput::IsConnected() const{
+bool XboxInput::IsConnected() const
+{
 	return isConnect;
 }
 
@@ -43,15 +60,16 @@ void XboxInput::Vibrate(WORD leftVal, WORD rightVal, WORD limit){
 	//XInputSetState(id, &vibration);
 }
 
-void XboxInput::Update() {
+void XboxInput::Update() 
+{
 	//update prev state first
-	prevState		 = currState	 ;
-	prevLeftStickX   = LeftStickX    ;
-	prevLeftStickY   = LeftStickY    ;
-	prevRightStickX  = RightStickX   ;
-	prevRightStickY  = RightStickY   ;
-	prevLeftTrigger  = LeftTrigger   ;
-	prevRightTrigger = RightTrigger  ;
+	prevState		 = currState   ;
+	prevLeftStickX   = LeftStickX  ;
+	prevLeftStickY   = LeftStickY  ;
+	prevRightStickX  = RightStickX ;
+	prevRightStickY  = RightStickY ;
+	prevLeftTrigger  = LeftTrigger ;
+	prevRightTrigger = RightTrigger;
 
 	//update current state
 	isConnect = XInputGetState(id, &currState) == ERROR_SUCCESS ? true : false;
@@ -103,7 +121,8 @@ void XboxInput::Update() {
 	RightTrigger   = currState.Gamepad.bRightTrigger <= XINPUT_GAMEPAD_TRIGGER_THRESHOLD ? 0 : currState.Gamepad.bRightTrigger;
 }
 
-bool XboxInput::IsStickMoving(int left_or_right_sitck) const {
+bool XboxInput::IsStickMoving(int left_or_right_sitck) const
+{
 	switch (left_or_right_sitck) {
 	case GAME_LSTICK:
 		return LeftStickX != 0.0f || LeftStickY != 0.0f;
@@ -113,7 +132,8 @@ bool XboxInput::IsStickMoving(int left_or_right_sitck) const {
 	return false;
 }
 
-float XboxInput::StickValue(int left_or_right_sitck, int X_0_or_Y_1) const {
+float XboxInput::StickValue(int left_or_right_sitck, int X_0_or_Y_1) const
+{
 	switch (left_or_right_sitck) {
 	case GAME_LSTICK:
 		switch (X_0_or_Y_1) {
@@ -135,7 +155,8 @@ float XboxInput::StickValue(int left_or_right_sitck, int X_0_or_Y_1) const {
 	return 0.0f;
 }
 
-float XboxInput::StickABSValue(int left_or_right_sitck, int X_0_or_Y_1) const {
+float XboxInput::StickABSValue(int left_or_right_sitck, int X_0_or_Y_1) const 
+{
 	switch (left_or_right_sitck) {
 	case GAME_LSTICK:
 		switch (X_0_or_Y_1) {
@@ -157,7 +178,8 @@ float XboxInput::StickABSValue(int left_or_right_sitck, int X_0_or_Y_1) const {
 	return 0.0f;
 }
 
-bool XboxInput::IsDown(const WORD& key_) const {
+bool XboxInput::IsDown(const WORD& key_) const 
+{
 	switch (key_) {
 	case GAME_LEFT_TRIGGER:
 		return (prevLeftTrigger != 0 && LeftTrigger != 0);
@@ -190,7 +212,8 @@ bool XboxInput::IsDown(const WORD& key_) const {
 	}
 }
 
-bool XboxInput::IsUp(const WORD& key_) const {
+bool XboxInput::IsUp(const WORD& key_) const 
+{
 	switch (key_) {
 	case GAME_LEFT_TRIGGER:
 		return (prevLeftTrigger == 0 && LeftTrigger == 0);
@@ -219,7 +242,8 @@ bool XboxInput::IsUp(const WORD& key_) const {
 	}
 }
 
-bool XboxInput::IsPressed(const WORD& key_) const {
+bool XboxInput::IsPressed(const WORD& key_) const 
+{
 	switch (key_) {
 	case GAME_LEFT_TRIGGER:
 		return (prevLeftTrigger == 0 && LeftTrigger != 0);
@@ -247,32 +271,37 @@ bool XboxInput::IsPressed(const WORD& key_) const {
 		return ((prevState.Gamepad.wButtons & key_) == 0 && (currState.Gamepad.wButtons & key_) != 0);
 	}
 }
-bool XboxInput::IsAnyKeyPressed() const {
+bool XboxInput::IsAnyKeyPressed() const
+{
 	return (prevState.Gamepad.wButtons == 0 && currState.Gamepad.wButtons != 0)
 		|| (prevLeftTrigger == 0 && LeftTrigger != 0)
 		|| (prevRightTrigger == 0 && RightTrigger != 0)
 		;
 }
-bool XboxInput::IsAnyKeyRelease() const {
+bool XboxInput::IsAnyKeyRelease() const 
+{
 	return (prevState.Gamepad.wButtons != 0 && currState.Gamepad.wButtons == 0)
 		|| (prevLeftTrigger != 0 && LeftTrigger == 0)
 		|| (prevRightTrigger != 0 && RightTrigger == 0)
 		;
 }
-bool XboxInput::IsAnyKeyDown() const {
+bool XboxInput::IsAnyKeyDown() const 
+{
 	return (prevState.Gamepad.wButtons != 0 && currState.Gamepad.wButtons != 0)
 		|| (prevLeftTrigger != 0 && LeftTrigger != 0)
 		|| (prevRightTrigger != 0 && RightTrigger != 0)
 		;
 }
-bool XboxInput::IsAnyKeyUp() const {
+bool XboxInput::IsAnyKeyUp() const 
+{
 	return (prevState.Gamepad.wButtons == 0 && currState.Gamepad.wButtons == 0)
 		|| (prevLeftTrigger == 0 && LeftTrigger == 0)
 		|| (prevRightTrigger == 0 && RightTrigger == 0)
 		;
 }
 
-bool XboxInput::IsRelease(const WORD& key_) const {
+bool XboxInput::IsRelease(const WORD& key_) const 
+{
 	switch (key_) {
 	case GAME_LEFT_TRIGGER:
 		return (prevLeftTrigger != 0 && LeftTrigger == 0);
@@ -301,7 +330,8 @@ bool XboxInput::IsRelease(const WORD& key_) const {
 	}
 }
 
-int XboxInput::TriggerValue(const WORD& key_) const {
+int XboxInput::TriggerValue(const WORD& key_) const 
+{
 	switch (key_) {
 	case GAME_LEFT_TRIGGER:
 		return LeftTrigger;

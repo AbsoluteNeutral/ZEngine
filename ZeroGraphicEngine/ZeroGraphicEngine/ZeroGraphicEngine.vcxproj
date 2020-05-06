@@ -269,6 +269,7 @@
     <ClInclude Include="GridManager.h" />
     <ClInclude Include="HashString.h" />
     <ClInclude Include="EditorMain.h" />
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="ImguiWrapper.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="inputkeydef.h" />

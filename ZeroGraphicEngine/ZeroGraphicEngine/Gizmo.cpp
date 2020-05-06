@@ -8,6 +8,7 @@ ZG_API Gizmo DebugGizmo{};
 ZG_API zg::Color wireFrameColor = CC_BLACK;
 std::vector<Gizmo::GizmoShape> Gizmo::list;
 
+// internal function
 void HelpAddCircle(std::vector<zg::Vector3>& mSegments, const zg::Vector3& axis1, const zg::Vector3& axis2, const zg::Vector3& center = zg::Vector3{},
 					float radius = 1.0f, float circle_revolve = 1.0f, float start_angle = 0.0f) {
 	float angle = start_angle;
@@ -39,14 +40,15 @@ void HelpAddCircle(zg::Vector3* mSegments, const zg::Vector3& axis1, const zg::V
 	}
 }
 
+//gizmo
+
 Gizmo::Gizmo() noexcept
 	:gizmo_shader(nullptr)
 	, gizmo_no_trans_shader(nullptr)
 	, VERTEX_ARRAY(0)
 	, BUFF_OBJ(0)
-	, cameraMatrix{}
-{
-}
+	//, cameraMatrix{}
+{}
 
 Gizmo::~Gizmo(){
 	glDeleteBuffers(1, &BUFF_OBJ);

@@ -7,20 +7,21 @@
 
 #define NUM_OF_CONTROLLERS 1
 
+//this class controls the number of xbox controllers exist
 class ZG_API XInputSystem : public System
 {
 public:
-	XInputSystem();
-	virtual ~XInputSystem();
+	XInputSystem			() noexcept;
+	virtual ~XInputSystem	() noexcept;
 
-	bool Init();
-	unsigned GetNumOfConllers() const;
-	XboxInput* GetXboxCon(unsigned arrayIndex_);
-	XboxInput* GetXboxConHandle();
+	bool Init					();
+	unsigned GetNumOfConllers	() const;
+	XboxInput* GetXboxCon		(unsigned arrayIndex_);
+	XboxInput* GetXboxConHandle	();
 	
-	void StopAllVirbration();
-	virtual void SystemUpdate();
-	virtual bool SystemExit();
+	void StopAllVirbration		();
+	virtual void SystemUpdate	();
+	virtual bool SystemExit		();
 
 	unsigned numOfControllers;
 	XboxInput* controllers;

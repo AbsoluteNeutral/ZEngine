@@ -3,6 +3,7 @@
 #include "Color.h"
 
 namespace zg {
+	//default value set to white, or any color you wish
 	Color::Color() noexcept
 		:r(1.0f), g(1.0f), b(1.0f), a(1.0f) 
 	{}
@@ -27,6 +28,7 @@ namespace zg {
 	int Color::GetG() const { return static_cast<int>(std::roundf(g * 255.0f)); }
 	int Color::GetB() const { return static_cast<int>(std::roundf(b * 255.0f)); }
 	int Color::GetA() const { return static_cast<int>(std::roundf(a * 255.0f)); }
+	
 	//setters
 	void Color::Set(int r_, int g_, int b_)
 	{
